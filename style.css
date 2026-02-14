@@ -1,0 +1,34 @@
+:root { --n: #00f2ff; --p: #ff007f; --bg: #050508; }
+body { margin: 0; background: var(--bg); color: #fff; font-family: sans-serif; display: flex; height: 100vh; overflow: hidden; }
+
+.sidebar { width: 220px; background: #0a0a15; padding: 20px; border-right: 1px solid #222; display: flex; flex-direction: column; }
+.n-btn { width: 100%; padding: 12px; background: none; border: none; color: #666; text-align: left; cursor: pointer; border-radius: 8px; margin-bottom: 5px; }
+.n-btn.active, .n-btn:hover { color: #fff; background: #1a1a25; border-left: 3px solid var(--p); }
+
+.xp-container { position: fixed; top:0; left:220px; right:0; height:30px; background: #000; z-index: 100; border-bottom: 1px solid var(--n); }
+#xp-bar { height:100%; width: 0%; background: linear-gradient(90deg, var(--n), var(--p)); transition: 0.3s; }
+.xp-text { position: absolute; width:100%; text-align: center; top:5px; font-size: 0.8rem; font-weight: bold; }
+
+.viewport { flex: 1; padding: 60px; overflow-y: auto; background: radial-gradient(circle at top, #0f0f1a, #050508); }
+.page { display: none; }
+.page.active { display: block; }
+.glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 20px; }
+
+/* ARCADE GRIDS */
+.arcade-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.m-grid { display: grid; grid-template-columns: repeat(3, 80px); gap: 10px; margin: 20px auto; }
+.cell { width: 80px; height: 80px; background: #000; border: 1px solid var(--n); display: flex; align-items: center; justify-content: center; font-size: 2rem; cursor: pointer; }
+
+.p-word { font-size: 2rem; letter-spacing: 10px; margin: 20px; color: var(--n); }
+.p-keys { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; max-width: 400px; }
+.key-btn { padding: 5px 10px; background: #222; border: 1px solid #444; color: white; cursor: pointer; }
+
+.orbe { width: 80px; height: 80px; background: radial-gradient(circle, var(--n), var(--p)); border-radius: 50%; margin: 20px auto; cursor: pointer; box-shadow: 0 0 15px var(--n); }
+.display-box { padding: 20px; background: rgba(0,0,0,0.4); border-radius: 10px; margin: 15px 0; font-size: 1.1rem; }
+.mega-btn { background: var(--p); border: none; padding: 10px 20px; color: #fff; border-radius: 5px; cursor: pointer; font-weight: bold; }
+.sub-btn { background: #111; border: 1px solid var(--n); color: var(--n); padding: 5px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px;}
+
+.visualizer { display: flex; justify-content: center; gap: 5px; height: 30px; align-items: flex-end; }
+.bar { width: 6px; height: 10px; background: var(--n); }
+.playing .bar { animation: wave 0.5s infinite alternate; }
+@keyframes wave { from { height: 5px; } to { height: 30px; } }
