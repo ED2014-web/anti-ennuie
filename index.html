@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>INFINITY HUB V3 | ULTRA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="xp-info">LVL <span id="lvl">1</span></div>
+        <div class="xp-progress-bg"><div id="xp-bar"></div></div>
+        <div class="xp-pts"><span id="xp-pts">0</span> / 100</div>
+    </header>
+
+    <main class="content-area">
+        <section id="home" class="page active">
+            <div class="glass card">
+                <h1>INFINITY<span>HUB</span></h1>
+                <div class="orbe" onclick="clickXP()"></div>
+                <p>Multiplicateur: <strong>x<span id="mult">1</span></strong></p>
+                <button class="btn-p" onclick="buyBoost()">BOOST XP (100 PTS)</button>
+            </div>
+            <div class="glass card">
+                <h3>📜 Citation du moment</h3>
+                <div id="quote-res" class="box">"Le succès n'est pas final, l'échec n'est pas fatal."</div>
+                <button class="btn-s" onclick="getQuote()">Nouvelle Citation</button>
+            </div>
+        </section>
+
+        <section id="arcade" class="page">
+            <div class="glass card">
+                <h3><i class="fas fa-times"></i> Morpion vs IA</h3>
+                <div id="m-grid" class="m-grid"></div>
+                <button class="btn-s" onclick="resetM()">Reset</button>
+            </div>
+            <div class="glass card">
+                <h3><i class="fas fa-coins"></i> Le Juste Prix</h3>
+                <p id="price-feedback">Devine entre 1 et 100</p>
+                <input type="number" id="price-input" placeholder="00">
+                <button class="btn-p" onclick="guessPrice()">Valider</button>
+            </div>
+        </section>
+
+        <section id="logic" class="page">
+            <div class="glass card">
+                <h3>🧠 Énigmes (+60)</h3>
+                <div id="logic-content" class="box">Prêt pour un défi ?</div>
+                <div id="logic-hint" class="hint" style="display:none;"></div>
+                <div class="btn-group">
+                    <button class="btn-s" onclick="showHint()">Réponse</button>
+                    <button class="btn-p" onclick="getNextItem('logic')">Suivante</button>
+                </div>
+            </div>
+            <div class="glass card">
+                <h3>💡 Culture G</h3>
+                <div id="culture-res" class="box">Savais-tu que... ?</div>
+                <button class="btn-p" onclick="getNextItem('culture')">Le Savais-tu ?</button>
+            </div>
+        </section>
+
+        <section id="cuisine" class="page">
+            <div class="glass card">
+                <h3>🍲 Master Cuisine (+50)</h3>
+                <div id="recipe-res" class="box">Choisis ton style !</div>
+                <div class="btn-grid">
+                    <button onclick="getRecette('Rapide')">Rapide</button>
+                    <button onclick="getRecette('Gourmand')">Plaisir</button>
+                    <button onclick="getRecette('Sain')">Healthy</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="activite" class="page">
+            <div class="glass card">
+                <h3>⚡ Défis Élite (+40)</h3>
+                <div id="act-res" class="box">Clique pour un défi !</div>
+                <button class="btn-p" onclick="getNextItem('act')">Générer Défi</button>
+            </div>
+        </section>
+
+        <section id="jukebox" class="page">
+            <div class="glass card">
+                <h3 id="m-title">Jukebox Mix</h3>
+                <div class="player-ctrl">
+                    <button onclick="prevM()" class="btn-s"><i class="fas fa-backward"></i></button>
+                    <button class="btn-p" onclick="toggleM()" id="p-btn">PLAY</button>
+                    <button onclick="nextM()" class="btn-s"><i class="fas fa-forward"></i></button>
+                </div>
+                <div class="playlist"><ul id="pl-list"></ul></div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <button onclick="tab('home')" class="nav-item active"><i class="fas fa-home"></i></button>
+        <button onclick="tab('arcade')" class="nav-item"><i class="fas fa-gamepad"></i></button>
+        <button onclick="tab('logic')" class="nav-item"><i class="fas fa-brain"></i></button>
+        <button onclick="tab('cuisine')" class="nav-item"><i class="fas fa-utensils"></i></button>
+        <button onclick="tab('activite')" class="nav-item"><i class="fas fa-bolt"></i></button>
+        <button onclick="tab('jukebox')" class="nav-item"><i class="fas fa-music"></i></button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
