@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>INFINITY HUB | ARCADE & MUSIC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="xp-container">
+        <div id="xp-bar"></div>
+        <div class="xp-text">NIVEAU <span id="lvl">1</span> | <span id="xp-pts">0</span> XP</div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="logo">INFINITY<span>HUB</span></div>
+        <nav>
+            <button onclick="tab('home')" class="n-btn active"><i class="fas fa-home"></i> Accueil</button>
+            <button onclick="tab('arcade')" class="n-btn"><i class="fas fa-gamepad"></i> Zone Arcade</button>
+            <button onclick="tab('logic')" class="n-btn"><i class="fas fa-brain"></i> Logic Lab</button>
+            <button onclick="tab('activite')" class="n-btn"><i class="fas fa-bolt"></i> Activités</button>
+            <button onclick="tab('cuisine')" class="n-btn"><i class="fas fa-utensils"></i> Cuisine</button>
+            <button onclick="tab('jukebox')" class="n-btn"><i class="fas fa-music"></i> Jukebox</button>
+        </nav>
+        <button onclick="resetAll()" class="reset-btn">Reset Système</button>
+    </aside>
+
+    <main class="viewport">
+        <section id="home" class="page active">
+            <div class="glass">
+                <h1>BIENVENUE DANS L'HUB</h1>
+                <p>Système de sauvegarde et d'historique actif.</p>
+                <div class="orbe" onclick="clickXP()"></div>
+                <p>Clique sur l'orbe pour XP ! (Mult: x<span id="mult">1</span>)</p>
+            </div>
+        </section>
+
+        <section id="arcade" class="page">
+            <div class="arcade-container">
+                <div class="glass game-box">
+                    <h3>Morpion vs IA</h3>
+                    <div id="m-grid" class="m-grid"></div>
+                    <button class="sub-btn" onclick="resetM()">Reset</button>
+                </div>
+                <div class="glass game-box">
+                    <h3>Pendu Master</h3>
+                    <div id="p-word" class="p-word">_ _ _</div>
+                    <div id="p-keys" class="p-keys"></div>
+                    <button class="sub-btn" onclick="initP()">Nouveau Mot</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="logic" class="page">
+            <div class="glass">
+                <h2>🧠 Énigmes (Sans répétition)</h2>
+                <div id="logic-content" class="display-box">Appuie sur Suivant...</div>
+                <div id="logic-hint" class="hint-box" style="display:none;"></div>
+                <button class="sub-btn" onclick="showHint()">Réponse</button>
+                <button class="mega-btn" onclick="getNextItem('logic')">Suivant</button>
+            </div>
+        </section>
+
+        <section id="activite" class="page">
+            <div class="glass">
+                <h2>⚡ Défis Elite</h2>
+                <div id="act-res" class="display-box">Prêt ?</div>
+                <button class="mega-btn" onclick="getNextItem('act')">Nouveau Défi</button>
+            </div>
+        </section>
+
+        <section id="jukebox" class="page">
+            <div class="glass">
+                <h2>🎵 Jukebox (Jul, Gims, Oli, Zen)</h2>
+                <h3 id="m-title">Titre Musique</h3>
+                <div class="visualizer" id="viz">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </div>
+                <div class="controls">
+                    <button onclick="prevM()" class="sub-btn">Précédent</button>
+                    <button onclick="toggleM()" id="p-btn" class="mega-btn">Play</button>
+                    <button onclick="nextM()" class="sub-btn">Suivant</button>
+                </div>
+                <div class="playlist-box"><ul id="pl-list"></ul></div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
